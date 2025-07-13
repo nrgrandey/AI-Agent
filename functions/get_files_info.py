@@ -5,10 +5,10 @@ def get_files_info(working_directory, directory=None):
         target_directory = os.path.abspath(os.path.join(working_directory, directory or ""))
 
         if not target_directory.startswith(working_directory):
-            return f"Error: Cannot list '{target_directory}' as it is outside the permitted working directory."
+            return f"Error: Cannot list '{target_directory}' as it is outside the permitted working directory"
 
         if not os.path.isdir(target_directory):
-            return f"Error: '{target_directory}' is not a directory."
+            return f"Error: '{target_directory}' is not a directory"
 
         files_list = os.listdir(target_directory)
         files_info = []
