@@ -7,15 +7,15 @@ def run_python_file(working_directory, file_path, args=[]):
         target_file_path = os.path.abspath(os.path.join(working_directory, file_path))
 
         if not target_file_path.startswith(working_directory):
-            return f"Error: Cannot execute '{file_path}' as it is outside the permitted working directory"
+            return f"Error: Cannot execute \"{file_path}\" as it is outside the permitted working directory"
 
         # Ensure the file exists
         if not os.path.isfile(target_file_path):
-            return f"Error: File '{file_path}' not found"
+            return f"Error: File \"{file_path}\" not found"
 
         # Ensure the file is a Python file
         if not target_file_path.endswith('.py'):
-            return f"Error: '{file_path}' is not a Python file"
+            return f"Error: \"{file_path}\" is not a Python file"
 
         # Prepare the command to run the Python file
         command = ['python', target_file_path] + args

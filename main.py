@@ -1,6 +1,7 @@
 import os
 import sys
 import argparse
+from config import SYSTEM_PROMPT
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -27,7 +28,11 @@ def main():
     ]
 
 
-    response = client.models.generate_content(model="gemini-2.0-flash-001", contents=messages)
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-001",
+        contents=messages,
+        config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
+    )
 
     print(response.text)
     if args.verbose:
